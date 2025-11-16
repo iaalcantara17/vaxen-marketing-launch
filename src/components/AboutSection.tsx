@@ -5,6 +5,7 @@ const founders = [
   {
     name: "Israel Alcantara",
     title: "Co-Founder & AI Engineer",
+    subtitle: "Amazon Software Development Engineer",
     bio: "Senior Computer Science major at NJIT with a focus on production-grade AI systems. As an Amazon Software Development Engineer, Israel has built reliable, scalable infrastructure at AWS, bringing enterprise-level technical expertise to Vaxen's AI voice platform.",
     linkedin: "https://www.linkedin.com/in/israel-alcantara/",
     companies: [
@@ -15,6 +16,7 @@ const founders = [
   {
     name: "Yash Amin",
     title: "Co-Founder & AI Engineer",
+    subtitle: "Target Software Engineer",
     bio: "Senior Computer Science major at NJIT passionate about user-centric AI products. As a Target Software Engineer, Yash has delivered data-driven solutions at scale, focusing on client success and building AI systems that truly serve business needs.",
     linkedin: "https://www.linkedin.com/in/yashamin8/",
     companies: [
@@ -93,7 +95,8 @@ export const AboutSection = () => {
                 {/* Content */}
                 <div className="flex-1 relative z-10">
                   <h3 className="text-2xl font-bold mb-2">{founder.name}</h3>
-                  <p className="text-primary font-semibold mb-4">{founder.title}</p>
+                  <p className="text-primary font-semibold mb-1">{founder.title}</p>
+                  <p className="text-muted-foreground text-sm font-medium mb-4">{founder.subtitle}</p>
                   <p className="text-muted-foreground leading-relaxed mb-8">
                     {founder.bio}
                   </p>
@@ -104,7 +107,7 @@ export const AboutSection = () => {
                   {founder.companies.map((company) => (
                     <div
                       key={company.name}
-                      className="flex items-center justify-center h-20 flex-1 bg-muted/50 rounded-lg p-4"
+                      className="flex items-center justify-center h-20 flex-1 bg-gradient-to-br from-slate-100 to-slate-50 dark:from-slate-800 dark:to-slate-700 rounded-lg p-4 border border-border"
                     >
                       <img
                         src={company.logo}
