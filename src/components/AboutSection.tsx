@@ -9,7 +9,7 @@ const founders = [
     bio: "Senior Computer Science major at NJIT with a focus on production-grade AI systems. As an Amazon Software Development Engineer, Israel has built reliable, scalable infrastructure at AWS, bringing enterprise-level technical expertise to Vaxen's AI voice platform.",
     linkedin: "https://www.linkedin.com/in/israel-alcantara/",
     companies: [
-      { name: "AWS", logo: "/images/aws-logo.png" },
+      { name: "Amazon", logo: "/images/amazon-logo.png" },
       { name: "NJIT", logo: "/images/njit-logo.png" },
     ],
   },
