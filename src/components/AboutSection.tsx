@@ -88,7 +88,7 @@ export const AboutSection = () => {
                   <motion.div
                     initial={{ scale: 1, opacity: 0 }}
                     whileHover={{ scale: 1.5, opacity: 0.3 }}
-                    className="absolute inset-0 rounded-full bg-primary"
+                    className="absolute inset-0 rounded-full bg-primary pointer-events-none"
                   />
                 </a>
 
