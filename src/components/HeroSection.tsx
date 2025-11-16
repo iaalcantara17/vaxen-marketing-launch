@@ -78,7 +78,7 @@ export const HeroSection = () => {
             className="text-center lg:text-left"
           >
             {/* Animated Headline */}
-            <div className="h-24 md:h-32 mb-6 flex items-center justify-center lg:justify-start">
+            <div className="min-h-32 md:min-h-40 mb-8 flex items-center justify-center lg:justify-start">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={headlineIndex}
@@ -86,7 +86,7 @@ export const HeroSection = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
+                  className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
                 >
                   {headlines[headlineIndex]}
                 </motion.h1>
@@ -100,7 +100,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-12"
+                className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0"
               >
                 {subheadlines[subheadlineIndex]}
               </motion.p>
