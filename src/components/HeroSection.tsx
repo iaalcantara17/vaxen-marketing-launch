@@ -7,7 +7,7 @@ import { HeroCallCard } from "./HeroCallCard";
 const headlines = [
   "Never Miss a Lead Again.",
   "Turn Every Call Into Revenue.",
-  "Your AI Voice Assistant, Always On.",
+  "AI Voice Assistant, Always On.",
 ];
 
 const subheadlines = [
