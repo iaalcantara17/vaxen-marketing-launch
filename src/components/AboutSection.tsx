@@ -113,7 +113,7 @@ export const AboutSection = () => {
                         src={company.logo}
                         alt={`${company.name} logo`}
                         className="max-h-full w-auto object-contain"
-                        style={{ maxHeight: '80px' }}
+                        style={{ maxHeight: company.name === 'Amazon' ? '60px' : '80px' }}
                       />
                     </div>
                   ))}

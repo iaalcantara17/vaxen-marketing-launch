@@ -26,7 +26,7 @@ export const CalendlySection = () => {
           className="rounded-2xl border border-border overflow-hidden shadow-xl bg-card"
         >
           <InlineWidget
-            url="https://calendly.com/vaxensolutions/demo"
+            url="https://calendly.com/vaxensolutions"
             styles={{
               height: "700px",
               width: "100%",
