@@ -2,8 +2,18 @@ import { motion } from "framer-motion";
 
 export const Footer = () => {
   return (
-    <footer className="bg-muted/50 border-t border-border py-12 px-4">
-      <div className="container mx-auto max-w-7xl">
+    <footer className="relative bg-gradient-to-b from-muted/50 to-muted border-t-0 py-16 px-4 overflow-hidden">
+      {/* Top gradient border */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+      
+      {/* Moving highlight effect */}
+      <motion.div
+        animate={{ x: ["-100%", "100%"] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+        className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-2xl"
+      />
+      
+      <div className="container mx-auto max-w-7xl relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
