@@ -74,14 +74,15 @@ export const AboutSection = () => {
             >
               <div className="relative rounded-2xl border border-border bg-card p-8 h-full flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300">
                 {/* Gradient glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
                 
                 {/* LinkedIn Icon */}
                 <a
                   href={founder.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300 z-10"
+                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-all duration-300 z-30 pointer-events-auto"
+                  aria-label={`View ${founder.name}'s LinkedIn profile`}
                 >
                   <Linkedin className="w-5 h-5" />
                   {/* Glow ring on hover */}
