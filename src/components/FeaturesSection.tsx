@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, Phone, Clock, Globe, Calendar, Target } from "lucide-react";
+import { GridBackground } from "./GridBackground";
 
 const features = [
   {
@@ -62,21 +63,23 @@ export const FeaturesSection = () => {
   const IconComponent = activeFeature.icon;
 
   return (
-    <section id="features" className="py-24 px-4 bg-muted/30">
-      <div className="container mx-auto max-w-7xl">
+    <section id="features" className="py-20 px-4 bg-muted/30 relative overflow-hidden">
+      <GridBackground />
+      
+      <div className="container mx-auto max-w-7xl relative">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-16"
+          className="text-4xl md:text-5xl font-bold mb-12"
         >
           Features
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Accordion */}
-          <div className="space-y-4">
+          <div className="space-y-3">
             {features.map((feature, index) => {
               const isOpen = openFeature === feature.id;
               return (
@@ -86,17 +89,21 @@ export const FeaturesSection = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="border border-border rounded-xl bg-card overflow-hidden"
+                  className={`border border-border rounded-xl bg-card overflow-hidden transition-colors ${
+                    isOpen ? "bg-primary/5" : ""
+                  }`}
                 >
                   <button
                     onClick={() => setOpenFeature(feature.id)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-muted/50 transition-colors"
+                    className={`w-full flex items-center justify-between p-5 text-left hover:bg-muted/50 transition-all ${
+                      isOpen ? "border-l-4 border-primary" : ""
+                    }`}
                   >
-                    <span className="text-xl font-semibold">{feature.title}</span>
+                    <span className="text-lg font-semibold">{feature.title}</span>
                     {isOpen ? (
-                      <Minus className="w-6 h-6 text-primary flex-shrink-0" />
+                      <Minus className="w-5 h-5 text-primary flex-shrink-0" />
                     ) : (
-                      <Plus className="w-6 h-6 flex-shrink-0" />
+                      <Plus className="w-5 h-5 flex-shrink-0" />
                     )}
                   </button>
                   <AnimatePresence>
@@ -108,7 +115,7 @@ export const FeaturesSection = () => {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <div className="px-6 pb-6 text-muted-foreground">
+                        <div className="px-5 pb-5 text-muted-foreground">
                           {feature.description}
                         </div>
                       </motion.div>
@@ -130,16 +137,32 @@ export const FeaturesSection = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={openFeature}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="rounded-2xl border border-border bg-gradient-to-br from-primary/5 via-blue-500/5 to-cyan-500/5 p-12 aspect-square flex flex-col items-center justify-center text-center"
+                initial={{ opacity: 0, scale: 0.95, x: 20 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                exit={{ opacity: 0, scale: 0.95, x: -20 }}
+                transition={{ duration: 0.4 }}
+                className="relative rounded-2xl bg-gradient-to-br from-primary/5 via-blue-500/5 to-cyan-500/5 p-12 aspect-square flex flex-col items-center justify-center text-center overflow-hidden"
               >
-                <IconComponent className="w-24 h-24 text-primary mb-6" />
-                <p className="text-xl font-medium text-foreground">
-                  {activeFeature.preview.caption}
-                </p>
+                {/* Animated gradient border */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 via-blue-500/30 to-cyan-500/30 rounded-2xl blur-xl animate-pulse" />
+                
+                <div className="relative z-10">
+                  <motion.div
+                    initial={{ scale: 0, rotate: -180 }}
+                    animate={{ scale: 1, rotate: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <IconComponent className="w-24 h-24 text-primary mb-6" />
+                  </motion.div>
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 }}
+                    className="text-xl font-medium text-foreground"
+                  >
+                    {activeFeature.preview.caption}
+                  </motion.p>
+                </div>
               </motion.div>
             </AnimatePresence>
           </motion.div>

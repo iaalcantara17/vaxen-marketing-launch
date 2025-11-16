@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
+import { FloatingShapes } from "./FloatingShapes";
 
 const useCases = [
   {
@@ -44,14 +45,18 @@ export const UseCasesSection = () => {
   };
 
   return (
-    <section id="use-cases" className="py-24 px-4">
-      <div className="container mx-auto max-w-7xl">
+    <section id="use-cases" className="py-20 px-4 relative overflow-hidden">
+      {/* Background gradient band */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 pointer-events-none" />
+      <FloatingShapes />
+      
+      <div className="container mx-auto max-w-7xl relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Use Cases</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -63,34 +68,23 @@ export const UseCasesSection = () => {
           {useCases.map((useCase, index) => (
             <motion.div
               key={useCase.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               className="relative group"
             >
               <div
-                className={`relative rounded-2xl border border-border bg-gradient-to-br ${useCase.gradient} overflow-hidden h-[400px] flex flex-col p-8`}
+                className={`relative rounded-2xl border border-border bg-card backdrop-blur-sm overflow-hidden h-[420px] flex flex-col p-8 shadow-lg hover:shadow-2xl transition-all duration-300`}
               >
+                {/* Gradient overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${useCase.gradient} opacity-50 group-hover:opacity-70 transition-opacity`} />
+                
                 {/* Content */}
-                <div className="flex-1 flex flex-col">
+                <div className="flex-1 flex flex-col relative z-10">
                   <h3 className="text-2xl font-bold mb-4">{useCase.industry}</h3>
-                  <p className="text-muted-foreground mb-8">{useCase.description}</p>
-                </div>
-
-                {/* Play Button */}
-                <div className="flex justify-center">
-                  <button
-                    onClick={() => handlePlayAudio(useCase.id)}
-                    className="w-16 h-16 rounded-full bg-primary hover:bg-primary-glow flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110"
-                  >
-                    {playingId === useCase.id ? (
-                      <Pause className="w-8 h-8 text-primary-foreground" fill="currentColor" />
-                    ) : (
-                      <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
-                    )}
-                  </button>
+                  <p className="text-muted-foreground mb-6">{useCase.description}</p>
                 </div>
 
                 {/* Audio visualization placeholder */}
@@ -98,7 +92,7 @@ export const UseCasesSection = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="absolute bottom-4 left-8 right-8 flex gap-1 items-center justify-center h-12"
+                    className="flex gap-1 items-center justify-center h-12 mb-6"
                   >
                     {[...Array(20)].map((_, i) => (
                       <motion.div
@@ -116,6 +110,30 @@ export const UseCasesSection = () => {
                     ))}
                   </motion.div>
                 )}
+
+                {/* Play Button */}
+                <div className="flex justify-center relative z-10">
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handlePlayAudio(useCase.id)}
+                    className="w-16 h-16 rounded-full bg-primary hover:bg-primary-glow flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-2xl relative"
+                  >
+                    {/* Pulsing ring when playing */}
+                    {playingId === useCase.id && (
+                      <motion.div
+                        animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="absolute inset-0 rounded-full border-2 border-primary"
+                      />
+                    )}
+                    {playingId === useCase.id ? (
+                      <Pause className="w-8 h-8 text-primary-foreground" fill="currentColor" />
+                    ) : (
+                      <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
+                    )}
+                  </motion.button>
+                </div>
               </div>
             </motion.div>
           ))}
