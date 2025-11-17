@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { HeroCallCard } from "./HeroCallCard";
 
 const headlines = [
-  "AI Voice Assistants That Never Miss a Lead",
+  "AI Voice Assistants That Never Miss Leads",
   "Turn Every Call Into Revenue with AI",
   "24/7 AI Phone Agent, Always On.",
 ];
@@ -54,7 +54,7 @@ export const HeroSection = () => {
   };
 
   const scrollToUseCases = () => {
-    document.getElementById("use-cases")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("ai-phone-agent-use-cases")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import vaxenLogo from "@/assets/vaxen-logo.png";
 
 export const FloatingHeader = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -18,6 +19,11 @@ export const FloatingHeader = () => {
 
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setIsMobileMenuOpen(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
@@ -40,9 +46,17 @@ export const FloatingHeader = () => {
             }`}
           >
             {/* Logo */}
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-              Vaxen
-            </div>
+            <button
+              onClick={scrollToTop}
+              className="flex items-center"
+              aria-label="Scroll to top"
+            >
+              <img
+                src={vaxenLogo}
+                alt="Vaxen AI voice assistants logo"
+                className="h-8 md:h-10 w-auto"
+              />
+            </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
