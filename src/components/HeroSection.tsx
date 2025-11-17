@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { HeroCallCard } from "./HeroCallCard";
 
 const headlines = [
-  "AI Voice Assistants That Never Miss Leads",
+  "AI Voice Assistant That Never Misses Leads",
   "Turn Every Call Into Revenue with AI",
   "24/7 AI Phone Agent, Always On.",
 ];
@@ -69,13 +69,13 @@ export const HeroSection = () => {
       </div>
 
       <div className="container px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
-          {/* Left: Hero Content */}
+        <div className="flex flex-col lg:flex-row gap-12 items-center justify-center max-w-7xl mx-auto">
+          {/* Hero Content */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center"
+            className="text-center lg:flex-1"
           >
             {/* Animated Headline */}
             <div className="min-h-32 md:min-h-40 mb-8 flex items-center justify-center">
@@ -100,7 +100,7 @@ export const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0"
+                className="text-lg md:text-xl lg:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto"
               >
                 {subheadlines[subheadlineIndex]}
               </motion.p>
@@ -111,7 +111,7 @@ export const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <Button
                 onClick={scrollToDemo}
@@ -129,8 +129,10 @@ export const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right: Floating Call Card */}
-          <HeroCallCard />
+          {/* Floating Call Card */}
+          <div className="lg:flex-1 flex justify-center">
+            <HeroCallCard />
+          </div>
         </div>
       </div>
     </section>
