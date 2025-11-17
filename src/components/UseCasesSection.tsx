@@ -8,7 +8,7 @@ const useCases = [
     id: "roofing",
     industry: "Roofing Companies",
     description:
-      "Capture leads 24/7, schedule roof inspections instantly, and never miss an emergency call—even during storms.",
+      "Capture leads 24/7 with our AI call answering service, schedule roof inspections instantly, and never miss an emergency call—even during storms.",
     gradient: "from-purple-500/20 to-pink-500/20",
     audioUrl: "/audio/roofing-demo.mp3",
   },
@@ -16,7 +16,7 @@ const useCases = [
     id: "dental",
     industry: "Dental Clinics",
     description:
-      "Automate appointment bookings, send reminders, handle cancellations, and answer common patient questions.",
+      "Automate appointment bookings with AI, send reminders, handle cancellations, and answer common patient questions with our virtual receptionist.",
     gradient: "from-blue-500/20 to-cyan-500/20",
     audioUrl: "/audio/dental-demo.mp3",
   },
@@ -24,7 +24,7 @@ const useCases = [
     id: "landscaping",
     industry: "Landscaping Services",
     description:
-      "Schedule lawn care appointments, provide instant quotes, and manage seasonal service bookings automatically.",
+      "Schedule lawn care appointments, provide instant quotes, and manage seasonal service bookings automatically with AI voice assistants.",
     gradient: "from-cyan-500/20 to-green-500/20",
     audioUrl: "/audio/landscaping-demo.mp3",
   },
@@ -45,9 +45,9 @@ export const UseCasesSection = () => {
   };
 
   return (
-    <section id="use-cases" className="py-20 px-4 relative overflow-hidden">
+    <section id="ai-phone-agent-use-cases" className="py-20 px-4 relative overflow-hidden">
       {/* Background gradient band */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 pointer-events-none" aria-hidden="true" />
       <FloatingShapes />
       
       <div className="container mx-auto max-w-7xl relative">
@@ -58,9 +58,9 @@ export const UseCasesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Use Cases</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">AI Phone Agent Use Cases</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Vaxen adapts to any industry where missed calls mean missed revenue.
+            Vaxen's AI voice assistants adapt to any industry where missed calls mean missed revenue.
           </p>
         </motion.div>
 

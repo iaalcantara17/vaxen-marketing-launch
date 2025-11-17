@@ -6,9 +6,9 @@ import { GridBackground } from "./GridBackground";
 const features = [
   {
     id: "call-answering",
-    title: "24/7 Call Answering",
+    title: "24/7 AI Call Answering",
     description:
-      "Your AI agent never sleeps, never takes breaks, and never misses a call. Whether it's 3 AM or during peak hours, every customer gets instant, professional attention.",
+      "Your AI phone agent never sleeps, never takes breaks, and never misses a call. Whether it's 3 AM or during peak hours, every customer gets instant, professional attention from our AI voice assistant.",
     icon: Phone,
     preview: {
       caption: "Always available, always professional",
@@ -18,7 +18,7 @@ const features = [
     id: "zero-hold",
     title: "Zero Hold Time",
     description:
-      "No more frustrated customers waiting on hold. Our AI agents answer instantly, handle multiple calls simultaneously, and provide immediate responses to customer inquiries.",
+      "No more frustrated customers waiting on hold. Our AI voice agents answer instantly, handle multiple calls simultaneously, and provide immediate responses to customer inquiries.",
     icon: Clock,
     preview: {
       caption: "Instant answers, zero wait time",
@@ -26,9 +26,9 @@ const features = [
   },
   {
     id: "multilingual",
-    title: "Multilingual Agents",
+    title: "Multilingual AI Agents",
     description:
-      "Speak to customers in their preferred language. Our AI agents seamlessly communicate in multiple languages with native-level fluency and cultural awareness.",
+      "Speak to customers in their preferred language. Our AI phone agents seamlessly communicate in multiple languages with native-level fluency and cultural awareness.",
     icon: Globe,
     preview: {
       caption: "Communicate globally, connect locally",
@@ -36,9 +36,9 @@ const features = [
   },
   {
     id: "booking",
-    title: "Appointment Booking & Reminders",
+    title: "AI Appointment Booking & Reminders",
     description:
-      "Automate your scheduling workflow. Our AI handles appointments, sends reminders, and manages cancellations without any human intervention.",
+      "Automate your scheduling workflow with AI. Our virtual receptionist handles appointments, sends reminders, and manages cancellations without any human intervention.",
     icon: Calendar,
     preview: {
       caption: "Smart scheduling that works for you",
@@ -46,9 +46,9 @@ const features = [
   },
   {
     id: "qualification",
-    title: "Lead Qualification",
+    title: "Intelligent Lead Qualification",
     description:
-      "Intelligent lead scoring and qualification. Our AI asks the right questions, identifies hot prospects, and routes qualified leads directly to your sales team.",
+      "AI-powered lead scoring and qualification. Our AI call answering service asks the right questions, identifies hot prospects, and routes qualified leads directly to your sales team.",
     icon: Target,
     preview: {
       caption: "Focus on leads that matter",
@@ -63,7 +63,7 @@ export const FeaturesSection = () => {
   const IconComponent = activeFeature.icon;
 
   return (
-    <section id="features" className="py-20 px-4 bg-muted/30 relative overflow-hidden">
+    <section id="ai-call-answering-features" className="py-20 px-4 bg-muted/30 relative overflow-hidden">
       <GridBackground />
       
       <div className="container mx-auto max-w-7xl relative">
@@ -74,7 +74,7 @@ export const FeaturesSection = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold mb-12"
         >
-          Features
+          AI Voice Assistant Features
         </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-12">

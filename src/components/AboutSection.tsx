@@ -28,12 +28,12 @@ const founders = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 px-4 relative overflow-hidden">
+    <section id="about-vaxen" className="py-20 px-4 relative overflow-hidden">
       {/* Diagonal background band */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-muted/30 to-transparent transform -skew-y-2 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-muted/30 to-transparent transform -skew-y-2 pointer-events-none" aria-hidden="true" />
       
       {/* Abstract network illustration */}
-      <div className="absolute inset-0 opacity-5 pointer-events-none">
+      <div className="absolute inset-0 opacity-5 pointer-events-none" aria-hidden="true">
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="network" width="100" height="100" patternUnits="userSpaceOnUse">
@@ -112,9 +112,10 @@ export const AboutSection = () => {
                     >
                       <img
                         src={company.logo}
-                        alt={`${company.name} logo`}
+                        alt={`${company.name} logo - ${founder.name}'s experience`}
                         className="max-h-full w-auto object-contain"
                         style={{ maxHeight: company.name === 'Amazon' ? '60px' : '80px' }}
+                        loading="lazy"
                       />
                     </div>
                   ))}

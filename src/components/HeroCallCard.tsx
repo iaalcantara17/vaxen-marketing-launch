@@ -13,9 +13,11 @@ export const HeroCallCard = () => {
         animate={{ y: [-5, 5, -5] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         className="relative w-80 bg-card/80 backdrop-blur-xl border border-primary/20 rounded-2xl p-6 shadow-2xl"
+        role="img"
+        aria-label="Live demo of Vaxen AI voice assistant handling an incoming customer call with real-time voice visualization"
       >
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/5 rounded-2xl blur-xl -z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/5 rounded-2xl blur-xl -z-10" aria-hidden="true" />
         
         {/* Header */}
         <div className="flex items-center gap-3 mb-4">

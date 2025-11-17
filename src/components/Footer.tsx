@@ -4,13 +4,14 @@ export const Footer = () => {
   return (
     <footer className="relative bg-gradient-to-b from-muted/50 to-muted border-t-0 py-16 px-4 overflow-hidden">
       {/* Top gradient border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" aria-hidden="true" />
       
       {/* Moving highlight effect */}
       <motion.div
         animate={{ x: ["-100%", "100%"] }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
         className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-r from-transparent via-primary/5 to-transparent blur-2xl"
+        aria-hidden="true"
       />
       
       <div className="container mx-auto max-w-7xl relative">

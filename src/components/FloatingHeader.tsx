@@ -46,24 +46,36 @@ export const FloatingHeader = () => {
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
-              <button
-                onClick={() => scrollToSection("features")}
+              <a
+                href="#ai-call-answering-features"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("ai-call-answering-features");
+                }}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 Features
-              </button>
-              <button
-                onClick={() => scrollToSection("use-cases")}
+              </a>
+              <a
+                href="#ai-phone-agent-use-cases"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("ai-phone-agent-use-cases");
+                }}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 Use Cases
-              </button>
-              <button
-                onClick={() => scrollToSection("about")}
+              </a>
+              <a
+                href="#about-vaxen"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection("about-vaxen");
+                }}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 About Us
-              </button>
+              </a>
               <Button
                 onClick={() => scrollToSection("calendly")}
                 className="bg-primary hover:bg-primary-glow"
@@ -93,24 +105,36 @@ export const FloatingHeader = () => {
         className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-background shadow-2xl z-40 md:hidden"
       >
         <nav className="flex flex-col gap-6 p-8 mt-20">
-          <button
-            onClick={() => scrollToSection("features")}
+          <a
+            href="#ai-call-answering-features"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("ai-call-answering-features");
+            }}
             className="text-2xl font-medium text-foreground hover:text-primary transition-colors text-left"
           >
             Features
-          </button>
-          <button
-            onClick={() => scrollToSection("use-cases")}
+          </a>
+          <a
+            href="#ai-phone-agent-use-cases"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("ai-phone-agent-use-cases");
+            }}
             className="text-2xl font-medium text-foreground hover:text-primary transition-colors text-left"
           >
             Use Cases
-          </button>
-          <button
-            onClick={() => scrollToSection("about")}
+          </a>
+          <a
+            href="#about-vaxen"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection("about-vaxen");
+            }}
             className="text-2xl font-medium text-foreground hover:text-primary transition-colors text-left"
           >
             About Us
-          </button>
+          </a>
           <Button
             onClick={() => scrollToSection("calendly")}
             size="lg"
