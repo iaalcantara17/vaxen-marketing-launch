@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
+import { Linkedin } from "lucide-react";
 import vaxenLogo from "@/assets/vaxen-logo.png";
 
 export const Footer = () => {
   return (
-    <footer className="relative bg-gradient-to-b from-muted/50 to-muted border-t-0 py-16 px-4 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-muted/50 to-muted border-t-0 py-24 px-4 overflow-hidden">
       {/* Top gradient border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" aria-hidden="true" />
       
@@ -27,8 +28,20 @@ export const Footer = () => {
           <img
             src={vaxenLogo}
             alt="Vaxen AI voice assistants logo"
-            className="h-16 md:h-20 w-auto"
+            className="h-24 md:h-28 w-auto"
           />
+          
+          {/* LinkedIn Link */}
+          <a
+            href="https://www.linkedin.com/company/vaxen/about/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+            aria-label="Visit Vaxen on LinkedIn"
+          >
+            <Linkedin className="w-5 h-5" />
+            <span className="text-sm font-medium">Connect with us on LinkedIn</span>
+          </a>
           
           {/* Copyright */}
           <p className="text-sm text-muted-foreground text-center">
