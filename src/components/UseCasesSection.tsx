@@ -58,7 +58,7 @@ export const UseCasesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">AI Phone Agent Use Cases</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Use Cases</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Vaxen's AI voice assistants adapt to any industry where missed calls mean missed revenue.
           </p>
