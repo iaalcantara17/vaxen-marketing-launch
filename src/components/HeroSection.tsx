@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 import { HeroCallCard } from "./HeroCallCard";
 
 const headlines = [
-  "Never Miss a Lead Again.",
-  "Turn Every Call Into Revenue.",
-  "AI Voice Assistant, Always On.",
+  "AI Voice Assistants That Never Miss a Lead",
+  "Turn Every Call Into Revenue with AI",
+  "24/7 AI Phone Agent, Always On.",
 ];
 
 const subheadlines = [
-  "24/7 Voice Assistant.",
-  "AI voice agents that answer every call, qualify leads, and book appointments while you sleep.",
-  "Human-like conversations that work around the clock.",
+  "AI voice assistants for businesses that answer every call, qualify leads, and book appointments—24/7.",
+  "AI phone agents that handle customer calls around the clock while you focus on growing your business.",
+  "Human-like AI call answering service that works when you can't. Never lose another opportunity.",
 ];
 
 export const HeroSection = () => {
@@ -60,7 +60,7 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-24">
       {/* Breathing gradient background */}
-      <div ref={backgroundRef} className="absolute inset-0 -z-10">
+      <div ref={backgroundRef} className="absolute inset-0 -z-10" aria-hidden="true">
         <div className="gradient-bar absolute left-[10%] top-0 bottom-0 w-24 bg-gradient-to-b from-primary/10 via-primary/20 to-primary/10 blur-3xl" />
         <div className="gradient-bar absolute left-[30%] top-0 bottom-0 w-32 bg-gradient-to-b from-blue-500/10 via-blue-500/20 to-blue-500/10 blur-3xl" />
         <div className="gradient-bar absolute left-[50%] top-0 bottom-0 w-28 bg-gradient-to-b from-primary/15 via-primary/25 to-primary/15 blur-3xl" />

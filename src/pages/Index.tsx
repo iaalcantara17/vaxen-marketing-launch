@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { FloatingHeader } from "@/components/FloatingHeader";
 import { HeroSection } from "@/components/HeroSection";
 import { StatementSection } from "@/components/StatementSection";
@@ -10,21 +11,36 @@ import { SectionDivider } from "@/components/SectionDivider";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <FloatingHeader />
-      <HeroSection />
-      <SectionDivider variant="gradient" />
-      <StatementSection />
-      <SectionDivider variant="curve" />
-      <FeaturesSection />
-      <SectionDivider variant="diagonal" />
-      <UseCasesSection />
-      <SectionDivider variant="gradient" />
-      <AboutSection />
-      <SectionDivider variant="curve" />
-      <CalendlySection />
-      <Footer />
-    </div>
+    <>
+      {/* SEO Meta Tags and Structured Data */}
+      <SEO />
+      
+      {/* Main Content */}
+      <div className="min-h-screen bg-background">
+        <FloatingHeader />
+        
+        <main>
+          <HeroSection />
+          <SectionDivider variant="gradient" />
+          
+          <StatementSection />
+          <SectionDivider variant="curve" />
+          
+          <FeaturesSection />
+          <SectionDivider variant="diagonal" />
+          
+          <UseCasesSection />
+          <SectionDivider variant="gradient" />
+          
+          <AboutSection />
+          <SectionDivider variant="curve" />
+          
+          <CalendlySection />
+        </main>
+        
+        <Footer />
+      </div>
+    </>
   );
 };
 

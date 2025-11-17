@@ -17,9 +17,9 @@ const stats = [
 
 export const StatementSection = () => {
   return (
-    <section className="py-20 px-4 relative">
+    <section id="ai-voice-assistant-platform" className="py-20 px-4 relative">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent pointer-events-none" aria-hidden="true" />
       
       <div className="container mx-auto max-w-5xl relative">
         {/* Statement */}
@@ -30,10 +30,10 @@ export const StatementSection = () => {
           viewport={{ once: true }}
           className="relative"
         >
-          <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full transform -translate-y-1/4" />
-          <p className="text-2xl md:text-3xl lg:text-4xl text-center font-medium leading-relaxed mb-16 text-foreground relative">
-            Vaxen is the voice AI platform for life-like phone calls that work 24/7, speak any language, and scale across your business. Our agents sound human, stay accurate, and never take a day off.
-          </p>
+          <div className="absolute inset-0 bg-primary/5 blur-3xl rounded-full transform -translate-y-1/4" aria-hidden="true" />
+          <h2 className="text-2xl md:text-3xl lg:text-4xl text-center font-medium leading-relaxed mb-16 text-foreground relative">
+            Vaxen is the AI voice assistant platform for life-like phone calls that work 24/7, speak any language, and scale across your business. Our AI phone agents sound human, stay accurate, and never take a day off.
+          </h2>
         </motion.div>
 
         {/* Stats Cards */}
