@@ -11,7 +11,7 @@ const headlines = [
 ];
 
 const subheadlines = [
-  "AI voice assistants for businesses that answer every call, qualify leads, and book appointments—24/7.",
+  "AI Voice Assistant That Never Miss Leads",
   "AI phone agents that handle customer calls around the clock while you focus on growing your business.",
   "Human-like AI call answering service that works when you can't. Never lose another opportunity.",
 ];
@@ -75,10 +75,10 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center"
           >
             {/* Animated Headline */}
-            <div className="min-h-32 md:min-h-40 mb-8 flex items-center justify-center lg:justify-start">
+            <div className="min-h-32 md:min-h-40 mb-8 flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.h1
                   key={headlineIndex}

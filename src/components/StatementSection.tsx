@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 
 const stats = [
   {
-    number: "50K+",
+    number: "5,000+",
     description: "Calls handled by Vaxen agents",
   },
   {
-    number: "25K+",
+    number: "2,000+",
     description: "People spoken to by Vaxen",
   },
   {
-    number: "100+ days",
-    description: "Total talk time handled by Vaxen",
+    number: "300+",
+    description: "Hours of talk time handled by Vaxen",
   },
 ];
 

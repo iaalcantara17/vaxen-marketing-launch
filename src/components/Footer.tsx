@@ -56,13 +56,13 @@ export const Footer = () => {
           {/* Links */}
           <div className="flex gap-6 justify-center text-sm">
             <a
-              href="#"
+              href="/privacy"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Privacy
             </a>
             <a
-              href="#"
+              href="/terms"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Terms

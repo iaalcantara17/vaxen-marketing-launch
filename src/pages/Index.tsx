@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { SEO } from "@/components/SEO";
 import { FloatingHeader } from "@/components/FloatingHeader";
 import { HeroSection } from "@/components/HeroSection";
@@ -10,6 +11,10 @@ import { Footer } from "@/components/Footer";
 import { SectionDivider } from "@/components/SectionDivider";
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       {/* SEO Meta Tags and Structured Data */}
