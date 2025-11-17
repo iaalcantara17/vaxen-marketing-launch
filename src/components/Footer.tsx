@@ -28,7 +28,7 @@ export const Footer = () => {
           <img
             src={vaxenLogo}
             alt="Vaxen AI voice assistants logo"
-            className="h-24 md:h-28 w-auto"
+            className="h-32 md:h-40 w-auto"
           />
           
           {/* LinkedIn Link */}

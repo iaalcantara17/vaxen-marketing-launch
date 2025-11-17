@@ -39,10 +39,10 @@ export const FloatingHeader = () => {
             : "bg-background/60 backdrop-blur-sm mt-4"
         }`}
       >
-        <div className={`container mx-auto px-4 ${isSticky ? "py-5" : "py-5"}`}>
+        <div className={`container mx-auto px-4 ${isSticky ? "py-3" : "py-3"}`}>
           <div
             className={`flex items-center justify-between ${
-              !isSticky ? "max-w-6xl mx-auto rounded-full border border-border bg-background/90 px-6 py-4 shadow-xl" : ""
+              !isSticky ? "max-w-6xl mx-auto rounded-full border border-border bg-background/90 px-6 py-2 shadow-xl" : ""
             }`}
           >
             {/* Logo */}
@@ -54,7 +54,7 @@ export const FloatingHeader = () => {
               <img
                 src={vaxenLogo}
                 alt="Vaxen AI voice assistants logo"
-                className="h-12 md:h-14 w-auto"
+                className="h-8 md:h-10 w-auto"
               />
             </button>
 
