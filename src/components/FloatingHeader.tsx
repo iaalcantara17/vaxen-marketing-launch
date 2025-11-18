@@ -37,7 +37,7 @@ export const FloatingHeader = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isSticky
             ? "backdrop-blur-md bg-background/80 dark:bg-white/90 shadow-lg"
-            : "bg-background/60 dark:bg-white/80 backdrop-blur-sm mt-4"
+            : "bg-transparent mt-4"
         }`}
       >
         <div className={`container mx-auto px-4 ${isSticky ? "py-3" : "py-3"}`}>
