@@ -36,14 +36,14 @@ export const FloatingHeader = () => {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isSticky
-            ? "backdrop-blur-md bg-background/80 shadow-lg"
-            : "bg-background/60 backdrop-blur-sm mt-4"
+            ? "backdrop-blur-md bg-background/80 dark:bg-white/90 shadow-lg"
+            : "bg-background/60 dark:bg-white/80 backdrop-blur-sm mt-4"
         }`}
       >
         <div className={`container mx-auto px-4 ${isSticky ? "py-3" : "py-3"}`}>
           <div
             className={`flex items-center justify-between ${
-              !isSticky ? "max-w-6xl mx-auto rounded-full border border-border bg-background/90 px-6 py-2 shadow-xl" : ""
+              !isSticky ? "max-w-6xl mx-auto rounded-full border border-border bg-background/90 dark:bg-white/95 dark:text-gray-900 px-6 py-2 shadow-xl" : ""
             }`}
           >
             {/* Logo */}
@@ -67,7 +67,7 @@ export const FloatingHeader = () => {
                   e.preventDefault();
                   scrollToSection("ai-call-answering-features");
                 }}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground dark:text-gray-900 hover:text-primary transition-colors font-medium"
               >
                 Features
               </a>
@@ -77,7 +77,7 @@ export const FloatingHeader = () => {
                   e.preventDefault();
                   scrollToSection("ai-phone-agent-use-cases");
                 }}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground dark:text-gray-900 hover:text-primary transition-colors font-medium"
               >
                 Use Cases
               </a>
@@ -87,7 +87,7 @@ export const FloatingHeader = () => {
                   e.preventDefault();
                   scrollToSection("about-vaxen");
                 }}
-                className="text-foreground hover:text-primary transition-colors font-medium"
+                className="text-foreground dark:text-gray-900 hover:text-primary transition-colors font-medium"
               >
                 About Us
               </a>
