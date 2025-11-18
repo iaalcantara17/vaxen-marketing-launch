@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Play, Pause } from "lucide-react";
 import { FloatingShapes } from "./FloatingShapes";
@@ -32,17 +32,50 @@ const useCases = [
 
 export const UseCasesSection = () => {
   const [playingId, setPlayingId] = useState<string | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const handlePlayAudio = (id: string) => {
+  const handlePlayAudio = (id: string, audioUrl: string) => {
     if (playingId === id) {
+      // Stop current audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
       setPlayingId(null);
-      // In production, pause the audio
     } else {
+      // Stop any currently playing audio
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      
+      // Create and play new audio
+      const audio = new Audio(audioUrl);
+      audioRef.current = audio;
+      
+      audio.play().catch((error) => {
+        console.error("Error playing audio:", error);
+        setPlayingId(null);
+      });
+      
+      // Handle audio end event
+      audio.addEventListener("ended", () => {
+        setPlayingId(null);
+      });
+      
       setPlayingId(id);
-      // In production, play the audio
-      console.log(`Playing audio for ${id}`);
     }
   };
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
+  }, []);
 
   return (
     <section id="ai-phone-agent-use-cases" className="py-20 px-4 relative overflow-hidden">
@@ -116,7 +149,7 @@ export const UseCasesSection = () => {
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => handlePlayAudio(useCase.id)}
+                    onClick={() => handlePlayAudio(useCase.id, useCase.audioUrl)}
                     className="w-16 h-16 rounded-full bg-primary hover:bg-primary-glow flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-2xl relative"
                   >
                     {/* Pulsing ring when playing */}
