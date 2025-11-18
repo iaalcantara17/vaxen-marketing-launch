@@ -61,18 +61,20 @@ export const UseCasesSection = () => {
       audioRef.current = audio;
       currentAudioId.current = id;
       
+      // Set playing state immediately
+      setPlayingId(id);
+      
       // Handle audio end event
       audio.addEventListener("ended", () => {
         setPlayingId(null);
         currentAudioId.current = null;
       });
       
+      // Start playback
       audio.play().catch((error) => {
         console.error("Error playing audio:", error);
         setPlayingId(null);
       });
-      
-      setPlayingId(id);
     }
   };
 
