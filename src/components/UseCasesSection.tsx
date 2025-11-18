@@ -34,46 +34,81 @@ export const UseCasesSection = () => {
   const [playingId, setPlayingId] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const currentAudioId = useRef<string | null>(null);
+  const listenersRef = useRef<{ onPlaying?: () => void; onPause?: () => void; onEnded?: () => void } | null>(null);
 
   const handlePlayAudio = (id: string, audioUrl: string) => {
     // If clicking the same card that's currently loaded
     if (currentAudioId.current === id && audioRef.current) {
-      if (playingId === id) {
-        // Currently playing, so pause (don't reset)
-        audioRef.current.pause();
-        setPlayingId(null);
-      } else {
-        // Currently paused, so resume
-        audioRef.current.play().catch((error) => {
-          console.error("Error playing audio:", error);
+      const audio = audioRef.current;
+
+      if (audio.paused) {
+        // Resume playback
+        setPlayingId(id); // optimistic to avoid flicker
+        audio.play().catch((error) => {
+          console.error("Error resuming audio:", error);
+          if (audio.paused) {
+            setPlayingId(null);
+          }
         });
-        setPlayingId(id);
+      } else {
+        // Pause without resetting time
+        audio.pause(); // 'pause' listener will update UI state
       }
     } else {
       // Different card or first time - stop current and create new audio
       if (audioRef.current) {
+        // Detach old listeners if any
+        if (listenersRef.current) {
+          const { onPlaying, onPause, onEnded } = listenersRef.current;
+          if (onPlaying) audioRef.current.removeEventListener("playing", onPlaying);
+          if (onPause) audioRef.current.removeEventListener("pause", onPause);
+          if (onEnded) audioRef.current.removeEventListener("ended", onEnded);
+          listenersRef.current = null;
+        }
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
       
-      // Create and play new audio
+      // Create new audio and wire events
       const audio = new Audio(audioUrl);
+
+      const onPlaying = () => {
+        // Keep UI in sync with actual audio state
+        setPlayingId(id);
+      };
+
+      const onPause = () => {
+        if (currentAudioId.current === id && audioRef.current === audio && audio.paused) {
+          setPlayingId((prev) => (prev === id ? null : prev));
+        }
+      };
+
+      const onEnded = () => {
+        if (currentAudioId.current === id && audioRef.current === audio) {
+          setPlayingId(null);
+          currentAudioId.current = null;
+        }
+      };
+
+      audio.addEventListener("playing", onPlaying);
+      audio.addEventListener("pause", onPause);
+      audio.addEventListener("ended", onEnded);
+      listenersRef.current = { onPlaying, onPause, onEnded };
+
       audioRef.current = audio;
       currentAudioId.current = id;
-      
-      // Set playing state immediately
+
+      // Set playing state immediately to avoid first-click flicker
       setPlayingId(id);
-      
-      // Handle audio end event
-      audio.addEventListener("ended", () => {
-        setPlayingId(null);
-        currentAudioId.current = null;
-      });
-      
+
       // Start playback
       audio.play().catch((error) => {
         console.error("Error playing audio:", error);
-        setPlayingId(null);
+        // Only reset UI if playback didn't actually start
+        if (audio.paused) {
+          setPlayingId(null);
+          currentAudioId.current = null;
+        }
       });
     }
   };
@@ -82,8 +117,16 @@ export const UseCasesSection = () => {
   useEffect(() => {
     return () => {
       if (audioRef.current) {
+        if (listenersRef.current) {
+          const { onPlaying, onPause, onEnded } = listenersRef.current;
+          if (onPlaying) audioRef.current.removeEventListener("playing", onPlaying);
+          if (onPause) audioRef.current.removeEventListener("pause", onPause);
+          if (onEnded) audioRef.current.removeEventListener("ended", onEnded);
+        }
         audioRef.current.pause();
         audioRef.current = null;
+        currentAudioId.current = null;
+        listenersRef.current = null;
       }
     };
   }, []);

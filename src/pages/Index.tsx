@@ -12,7 +12,20 @@ import { SectionDivider } from "@/components/SectionDivider";
 
 const Index = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const prev = window.history.scrollRestoration as ScrollRestoration | undefined;
+    try {
+      window.history.scrollRestoration = "manual";
+    } catch {}
+
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    });
+
+    return () => {
+      try {
+        window.history.scrollRestoration = prev || "auto";
+      } catch {}
+    };
   }, []);
 
   return (
