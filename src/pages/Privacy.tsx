@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { SEO } from "@/components/SEO";
-import { FloatingHeader } from "@/components/FloatingHeader";
+import { LegalPageHeader } from "@/components/LegalPageHeader";
 import { Footer } from "@/components/Footer";
 
 const Privacy = () => {
@@ -16,7 +16,7 @@ const Privacy = () => {
       />
       
       <div className="min-h-screen bg-background">
-        <FloatingHeader />
+        <LegalPageHeader />
         
         <main className="container mx-auto max-w-4xl px-4 py-24">
           <h1 className="text-4xl md:text-5xl font-bold mb-8">Privacy Policy</h1>
