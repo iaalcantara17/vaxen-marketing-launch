@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import vaxenLogo from "@/assets/vaxen-logo.png";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const FloatingHeader = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -96,15 +97,19 @@ export const FloatingHeader = () => {
               >
                 Book a Demo
               </Button>
+              <ThemeToggle />
             </nav>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Menu Button and Theme Toggle */}
+            <div className="md:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2"
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
       </motion.header>
