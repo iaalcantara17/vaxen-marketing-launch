@@ -33,17 +33,24 @@ const useCases = [
 export const UseCasesSection = () => {
   const [playingId, setPlayingId] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const currentAudioId = useRef<string | null>(null);
 
   const handlePlayAudio = (id: string, audioUrl: string) => {
-    if (playingId === id) {
-      // Stop current audio
-      if (audioRef.current) {
+    // If clicking the same card that's currently loaded
+    if (currentAudioId.current === id && audioRef.current) {
+      if (playingId === id) {
+        // Currently playing, so pause (don't reset)
         audioRef.current.pause();
-        audioRef.current.currentTime = 0;
+        setPlayingId(null);
+      } else {
+        // Currently paused, so resume
+        audioRef.current.play().catch((error) => {
+          console.error("Error playing audio:", error);
+        });
+        setPlayingId(id);
       }
-      setPlayingId(null);
     } else {
-      // Stop any currently playing audio
+      // Different card or first time - stop current and create new audio
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
@@ -52,14 +59,16 @@ export const UseCasesSection = () => {
       // Create and play new audio
       const audio = new Audio(audioUrl);
       audioRef.current = audio;
-      
-      audio.play().catch((error) => {
-        console.error("Error playing audio:", error);
-        setPlayingId(null);
-      });
+      currentAudioId.current = id;
       
       // Handle audio end event
       audio.addEventListener("ended", () => {
+        setPlayingId(null);
+        currentAudioId.current = null;
+      });
+      
+      audio.play().catch((error) => {
+        console.error("Error playing audio:", error);
         setPlayingId(null);
       });
       
